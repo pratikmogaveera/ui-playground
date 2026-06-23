@@ -28,17 +28,24 @@ Open [http://localhost:3000](http://localhost:3000).
 ui-playground/
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx        — root layout (dark theme default)
-│   │   ├── page.tsx          — home page
-│   │   └── globals.css       — Tailwind + shadcn theme variables
+│   │   ├── layout.tsx              — root layout (dark theme default)
+│   │   ├── page.tsx                — home page (experiment grid)
+│   │   ├── globals.css             — Tailwind + shadcn theme variables
+│   │   ├── snap-drawer/
+│   │   │   └── page.tsx            — snap drawer experiment
+│   │   └── view-transitions/
+│   │       ├── page.tsx            — card grid (shared element source)
+│   │       └── [id]/page.tsx       — detail page (shared element target)
 │   ├── components/ui/
-│   │   └── button.tsx        — shadcn button component
+│   │   └── button.tsx              — shadcn button component
 │   └── lib/
-│       └── utils.ts          — cn() class merge helper
-├── public/                   — static assets
-├── components.json           — shadcn/ui config
-├── postcss.config.mjs        — PostCSS with Tailwind
-├── tsconfig.json             — TypeScript config
+│       ├── utils.ts                — cn() class merge helper
+│       └── experiments.ts          — experiment registry
+├── public/                         — static assets
+├── components.json                 — shadcn/ui config
+├── next.config.ts                  — Next.js config (viewTransition enabled)
+├── postcss.config.mjs              — PostCSS with Tailwind
+├── tsconfig.json                   — TypeScript config
 └── package.json
 ```
 
@@ -46,6 +53,8 @@ ui-playground/
 
 - [x] Project setup (Next.js + Tailwind + shadcn/ui)
 - [x] Dark theme configured as default
+- [x] Snap Drawer — gesture-based resizable panel with snap lock
+- [x] View Transitions — cross-page shared element morph demo
 
 ## Resources
 
