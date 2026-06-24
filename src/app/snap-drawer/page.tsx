@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useDrag } from "@use-gesture/react";
+import { cn } from "@/lib/utils";
 
 const DEFAULT_PCT = 50;
 const LOCK_PCT = 80;
@@ -28,7 +29,8 @@ export default function SnapDrawer() {
         startPct.current = heightPct;
       }
 
-      const containerH = containerRef.current?.clientHeight ?? window.innerHeight;
+      const containerH =
+        containerRef.current?.clientHeight ?? window.innerHeight;
       const deltaPct = (my / containerH) * 100;
       let next = startPct.current + deltaPct;
       next = Math.min(MAX_PCT, Math.max(MIN_PCT, next));
@@ -73,45 +75,53 @@ export default function SnapDrawer() {
       >
         <Link
           href="/"
-          className="absolute top-6 left-6 text-base text-black/60 hover:text-black z-10"
+          className="absolute top-6 left-6 z-10 text-base text-black/60 hover:text-black"
           onPointerDown={(e) => e.stopPropagation()}
         >
           ← Back
         </Link>
 
-        <span className="text-4xl font-semibold pointer-events-none">Header</span>
+        <span className="pointer-events-none text-4xl font-semibold">
+          Header
+        </span>
 
         {/* Drag indicator pill */}
-        <div className="absolute bottom-3 left-1/2 h-1 w-10 -translate-x-1/2 rounded-full bg-black/20 pointer-events-none" />
+        <div className="pointer-events-none absolute bottom-3 left-1/2 h-1 w-10 -translate-x-1/2 rounded-full bg-black/20" />
       </div>
 
       {/* Content area with snap indicator */}
       <div className="relative flex-1 overflow-hidden">
         {/* Snap point — edge notches + center bar */}
         <div
-          className="absolute left-0 right-0 flex items-center pointer-events-none transition-all duration-200"
+          className="pointer-events-none absolute right-0 left-0 flex items-center transition-all duration-200"
           style={{
             top: `${((LOCK_PCT - heightPct) / (100 - heightPct)) * 100}%`,
             opacity: heightPct > 55 ? Math.min(1, (heightPct - 55) / 15) : 0,
           }}
         >
           {/* Left notch */}
-          <div className={cn(
-            "h-3 w-1 rounded-r-full transition-colors duration-200",
-            locked ? "bg-green-400" : "bg-white/25",
-          )} />
+          <div
+            className={cn(
+              "h-3 w-1 rounded-r-full transition-colors duration-200",
+              locked ? "bg-green-400" : "bg-white/25",
+            )}
+          />
           {/* Center bar */}
-          <div className="flex-1 flex justify-center">
-            <div className={cn(
-              "h-0.5 rounded-full transition-all duration-200",
-              locked ? "w-12 bg-green-400/80" : "w-8 bg-white/15",
-            )} />
+          <div className="flex flex-1 justify-center">
+            <div
+              className={cn(
+                "h-0.5 rounded-full transition-all duration-200",
+                locked ? "w-12 bg-green-400/80" : "w-8 bg-white/15",
+              )}
+            />
           </div>
           {/* Right notch */}
-          <div className={cn(
-            "h-3 w-1 rounded-l-full transition-colors duration-200",
-            locked ? "bg-green-400" : "bg-white/25",
-          )} />
+          <div
+            className={cn(
+              "h-3 w-1 rounded-l-full transition-colors duration-200",
+              locked ? "bg-green-400" : "bg-white/25",
+            )}
+          />
         </div>
 
         {/* Content */}
@@ -121,8 +131,4 @@ export default function SnapDrawer() {
       </div>
     </div>
   );
-}
-
-function cn(...classes: (string | false | undefined)[]) {
-  return classes.filter(Boolean).join(" ");
 }

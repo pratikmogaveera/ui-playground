@@ -13,6 +13,7 @@ Quick, low-friction space to try things out — new component libraries, animati
 - TypeScript
 - Tailwind CSS v4
 - shadcn/ui (Base UI primitives)
+- Motion (spring animations)
 
 ## How to Run
 
@@ -31,6 +32,8 @@ ui-playground/
 │   │   ├── layout.tsx              — root layout (dark theme default)
 │   │   ├── page.tsx                — home page (experiment grid)
 │   │   ├── globals.css             — Tailwind + shadcn theme variables
+│   │   ├── ios-stack/
+│   │   │   └── page.tsx            — iOS notification stack experiment
 │   │   ├── snap-drawer/
 │   │   │   └── page.tsx            — snap drawer experiment
 │   │   └── view-transitions/
@@ -55,6 +58,7 @@ ui-playground/
 - [x] Dark theme configured as default
 - [x] Snap Drawer — gesture-based resizable panel with snap lock
 - [x] View Transitions — cross-page shared element morph demo
+- [x] iOS Stack — notification stack with expand/collapse spring animation
 
 ## Resources
 

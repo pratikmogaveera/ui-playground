@@ -6,7 +6,11 @@ export function generateStaticParams() {
   return items.map((item) => ({ id: item.id }));
 }
 
-export default async function DetailPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function DetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
   const item = items.find((i) => i.id === id)!;
 
