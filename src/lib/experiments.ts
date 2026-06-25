@@ -8,6 +8,14 @@ export type Experiment = {
 
 export const experiments: Experiment[] = [
   {
+    href: "/ios-folder",
+    title: "iOS Folder",
+    description:
+      "Tap an app group to expand into a folder overlay with scale and blur — mimicking iOS home screen folders.",
+    tags: ["animation", "motion", "layout"],
+    date: "2026-06-25",
+  },
+  {
     href: "/ios-stack",
     title: "iOS Stack",
     description:

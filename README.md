@@ -34,6 +34,8 @@ ui-playground/
 │   │   ├── globals.css             — Tailwind + shadcn theme variables
 │   │   ├── ios-stack/
 │   │   │   └── page.tsx            — iOS notification stack experiment
+│   │   ├── ios-folder/
+│   │   │   └── page.tsx            — iOS home screen folder animation
 │   │   ├── snap-drawer/
 │   │   │   └── page.tsx            — snap drawer experiment
 │   │   └── view-transitions/
@@ -59,6 +61,7 @@ ui-playground/
 - [x] Snap Drawer — gesture-based resizable panel with snap lock
 - [x] View Transitions — cross-page shared element morph demo
 - [x] iOS Stack — notification stack with expand/collapse spring animation
+- [ ] iOS Folder — home screen folder expand/collapse (WIP)
 
 ## Resources
 
